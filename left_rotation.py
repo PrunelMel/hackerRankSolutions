@@ -1,31 +1,35 @@
 
-def rotate_left(d:int, arr:list[int]):
+# def rotate_left(d:int, arr:list[int]):
     
-    res:list[int] = []
+#     res:list[int] = []
     
-    for i in range(d):
+#     for i in range(d):
         
-        res = []
+#         res = []
         
-        first:int = 0
+#         first:int = 0
         
-        for j in range(len(arr)):
+#         for j in range(len(arr)):
             
-            if j == 0:
+#             if j == 0:
                 
-                first = arr[0]
+#                 first = arr[0]
             
-            else:
+#             else:
                 
-                res.append(arr[j])
+#                 res.append(arr[j])
                 
-        res.append(first)
+#         res.append(first)
             
-        arr = res
+#         arr = res
                         
-    return arr
+#     return arr
                 
-            
+def rotate_left(d: int, arr: list[int]) -> list[int]:
+    n = len(arr)
+    d = d % n 
+    return arr[d:] + arr[:d]
+
             
 
 test = [1,2,3,4,5]
