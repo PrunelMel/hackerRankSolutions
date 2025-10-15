@@ -4,28 +4,66 @@ import java.util.List;
 
 class ArrayManip{
 
-    public static long Result(int n, List<List<Integer>> queries){
+    // public static long Result(int n, List<List<Integer>> queries){
         
-        long [] arr = new long[n];//all values are 0 by default
+    //     long [] arr = new long[n];//all values are 0 by default
 
 
-        for(List<Integer> query : queries){
+    //     for(List<Integer> query : queries){
 
-            System.out.println(query);
+    //         System.out.println(query);
 
-            for(int i=query.get(0); i <= query.get(1) && i >= query.get(0); i++){
+    //         for(int i=query.get(0); i <= query.get(1) && i >= query.get(0); i++){
 
-                // System.out.println(query);
-                
-                arr[i - 1] += query.get(2);
+    //             // System.out.println(query);
+                    
+    //                 arr[i - 1] += query.get(2);
+
+    //         }
+
+    //         System.out.println(Arrays.toString(arr));
+    //     }
+
+    //     return Arrays.stream(arr).max().getAsLong();
+   
+    // }
+
+    public static long Result(int n, List<List<Integer>> queries) {
+        
+        long[] arr = new long[n];
+        
+        for (List<Integer> query : queries) {
+            
+            arr[query.get(0) - 1] += query.get(2);
+
+            if (query.get(1) < n){
+
+                arr[query.get(1)] -= query.get(2);
 
             }
 
             System.out.println(Arrays.toString(arr));
+
         }
 
-        return Arrays.stream(arr).max().getAsLong();
-   
+        long max = 0;
+        long current = 0;
+        long[] finalArr = new long[n];
+
+        for (int i = 0; i < n; i++) {
+            
+            current += arr[i];
+
+            finalArr[i] = current;
+
+            if (current > max) {
+                max = current;
+            }
+        }
+
+        System.out.println(Arrays.toString(finalArr));
+
+        return max;
     }
 
 
