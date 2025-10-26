@@ -29,19 +29,31 @@ public class EqualStacks{
 
                 break;
             }
+
+            else if(h1.isEmpty() || h2.isEmpty() || h3.isEmpty()){
+                
+                return 0;
+            }
+
             else{
 
-                if(sumH1 > sumH2 && sumH1 > sumH2){
+                if(sumH1 > sumH2 && sumH1 > sumH3){
 
                     sumH1 -= h1.get(0);
+
+                    h1.remove(0);
                 }
                 else if(sumH2 > sumH1 && sumH2 > sumH3){
 
                     sumH2 -= h2.get(0);
+
+                    h2.remove(0);
                 }
                 else if(sumH3 > sumH1 && sumH3 > sumH2){
 
                     sumH3 -= h3.get(0);
+
+                    h3.remove(0);
                 }
             }
         }
