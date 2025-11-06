@@ -30,7 +30,7 @@ def getMax(operations:list[str]) -> list[int]:
     
     for operation in operations:
         
-        if len(operation) > 1:
+        if operation.startswith('1'):
             
             val:int = int(operation[2:])
             
