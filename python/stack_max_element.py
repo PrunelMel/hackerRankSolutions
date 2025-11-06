@@ -28,17 +28,31 @@ def getMax(operations:list[str]) -> list[int]:
         
     answers:list[int] = []
     
+    max_stack: list[int] = []
+    
     for operation in operations:
         
         if operation.startswith('1'):
             
-            val:int = int(operation[2:])
+            
+            val = int(operation[2:])
             
             stack.append(val)
             
+            current_max = val if not max_stack else max(val, max_stack[-1])
+            
+            max_stack.append(current_max)
+            
         else:
             
-            stack.pop()  if operation == '2' else  answers.append(max(stack))
+            if operation == '2':
+                
+                stack.pop()
+                
+                max_stack.pop() 
+            
+            else:
+                answers.append(max_stack[-1])
                 
     return answers
             
