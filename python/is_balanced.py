@@ -57,11 +57,9 @@ def is_balanced(s:str):
     
     stack:list[str] = []
     
-    for i, s_ in enumerate(s):        
+    for s_ in enumerate(s):        
         print(stack)
-        
-        print("s_ is ", s_)
-        
+                
         if s_ == '[' or s_ == '(' or s_ == '{':
             
             stack.append(s_)
