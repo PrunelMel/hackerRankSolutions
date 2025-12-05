@@ -80,6 +80,33 @@ def is_balanced(s:str):
             
     return "YES" if len(stack) == 0 else "NO"
                 
+                
+                
+def is_balanced(s:str):
+    
+    stack:list[str] = []
+    
+    for s_ in enumerate(s):        
+        
+        print(stack)
+                
+        if s_ == '[' or s_ == '(' or s_ == '{':
+            
+            stack.append(s_)
+        
+        else:
+            
+            if len(stack) != 0 and (s_ == '}' and stack[-1] == '{' or s_ == ')' and stack[-1] == '(' or s_ == ']' and stack[-1] == '['):
+                            
+                stack.pop()
+                    
+            else:
+                
+                return "NO"
+            
+    return "YES" if len(stack) == 0 else "NO"
+
+
 print(is_balanced("{[()]}"))
         
         
